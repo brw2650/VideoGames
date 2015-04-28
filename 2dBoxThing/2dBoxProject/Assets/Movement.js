@@ -26,4 +26,12 @@ function Update ()
 		transform.localScale.x -= moveSpeed;
 		transform.localScale.y -= moveSpeed;
 	}
+		
+	if(Input.GetKeyDown(KeyCode.PageUp)){
+		transform.rotation.z += moveSpeed;
+	}
+	
+	if(Input.GetKeyDown(KeyCode.PageDown)){
+		transform.rotation.z -= moveSpeed;
+	}
 }
