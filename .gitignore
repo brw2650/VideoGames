@@ -1,9 +1,32 @@
-2dBoxThing/2dBoxProject/Library/
-2dBoxThing/2dBoxProject/Temp/
-2dBoxThing/2dBoxProject/Obj/
-2dBoxThing/2dBoxProject/Build/
-
-2dBoxThing/2dBoxProject/library/
-2dBoxThing/2dBoxProject/temp/
-2dBoxThing/2dBoxProject/obj/
-2dBoxThing/2dBoxProject/build/
+# =============== #
+# Unity generated #
+# =============== #
+[Tt]emp/
+[Oo]bj/
+[Bb]uild
+[Ll]ibrary/
+sysinfo.txt
+ 
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+[Ee]xported[Oo]bj/
+/*.userprefs
+/*.csproj
+/*.pidb
+/*.suo
+/*.sln*
+/*.user
+/*.unityproj
+/*.booproj
+ 
+# ============ #
+# OS generated #
+# ============ #
+.DS_Store*
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+[Tt]humbs.db
