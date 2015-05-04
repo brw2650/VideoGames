@@ -1,4 +1,4 @@
-package com.rollingduck.ProjectDungeon;
+package com.rollingduck.projectdungeon;
 
 import java.util.logging.Logger;
 
