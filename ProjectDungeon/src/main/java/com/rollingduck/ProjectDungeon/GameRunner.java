@@ -1,11 +1,11 @@
 package com.rollingduck.ProjectDungeon;
 
-/**
- * Hello world!
- *
- */
-public class GameRunner 
-{
+import java.util.logging.Logger;
+
+public class GameRunner {
+	
+	private static final Logger log = Logger.getLogger(GameRunner.class.getName());
+	
     public static void main( String[] args )
     {
         GameRunner runner = new GameRunner();
@@ -13,6 +13,6 @@ public class GameRunner
     }
     
     public void run(){
-    	System.out.println( "Game Running" );
+    	log.info("Game running.");
     }
 }
