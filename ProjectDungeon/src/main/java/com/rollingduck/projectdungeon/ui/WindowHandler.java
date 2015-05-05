@@ -8,9 +8,6 @@ import com.rollingduck.projectdungeon.GameRunner;
 public class WindowHandler {
 	// Need -Djava.library.path=target/natives as a vm argument
 
-	private static final int WINDOW_HEIGHT = 600;
-	private static final int WINDOW_WIDTH = 800;
-
 	private GameRunner runner;
 
 	public WindowHandler(GameRunner runner) {
@@ -21,11 +18,12 @@ public class WindowHandler {
 		try {
 			AppGameContainer game = new AppGameContainer(runner);
 			game.setMaximumLogicUpdateInterval(60);
-			game.setDisplayMode(800, 800, false);
+			// TODO move to constants
+			game.setDisplayMode(600, 800, false);
 			game.setTargetFrameRate(60);
 			game.setAlwaysRender(true);
 			game.setVSync(true);
-			game.setShowFPS(false);
+			game.setShowFPS(true);
 			game.start();
 		} catch (SlickException e) {
 			e.printStackTrace();
