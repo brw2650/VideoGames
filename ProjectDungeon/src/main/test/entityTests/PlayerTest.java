@@ -34,14 +34,7 @@ public class PlayerTest {
 		assertTrue(p.getyPosition() == 5);
 	}
 
-	@Test
-	public void testLive() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testKill() {
-		fail("Not yet implemented");
-	}
+	
+	
 
 }

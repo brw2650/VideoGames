@@ -6,6 +6,11 @@ public class Player extends Actor {
 		super(xPosition, yPosition, health);
 		// TODO Auto-generated constructor stub
 	}
+
+	@Override
+	public int getEntityId() {
+		return this.entityID;
+	}
 	
 
 }

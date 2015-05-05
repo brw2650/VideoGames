@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 import com.rollingduck.projectdungeon.constants.CharacterConstants;
 
-public abstract class Actor {
+public abstract class Actor extends Entity {
 
 	public Actor(int xPosition, int yPosition, int health) {
 		super();

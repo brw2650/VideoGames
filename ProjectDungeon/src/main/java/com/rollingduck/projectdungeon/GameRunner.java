@@ -1,7 +1,12 @@
 package com.rollingduck.projectdungeon;
 
+import java.util.HashMap;
 import java.util.logging.Logger;
 
+import com.rollingduck.projectdungeon.constants.CharacterConstants;
+import com.rollingduck.projectdungeon.entities.Entity;
+import com.rollingduck.projectdungeon.entities.EntityManager;
+import com.rollingduck.projectdungeon.entities.Player;
 import com.rollingduck.projectdungeon.ui.WindowHandler;
 import com.rollingduck.projectdungeon.world.CurrentLevelHolder;
 
