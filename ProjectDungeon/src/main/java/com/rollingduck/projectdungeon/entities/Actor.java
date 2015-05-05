@@ -3,13 +3,13 @@ package com.rollingduck.projectdungeon.entities;
 import java.util.HashMap;
 
 import com.rollingduck.projectdungeon.constants.CharacterConstants;
+import com.rollingduck.projectdungeon.world.Coordinates;
 
-public abstract class Actor extends Entity {
+public abstract class Actor implements Entity {
 
-	public Actor(int xPosition, int yPosition, int health) {
+	public Actor(Coordinates coordinates, int health) {
 		super();
-		this.xPosition = xPosition;
-		this.yPosition = yPosition;
+		this.coordinates = coordinates;
 		this.health = health;
 
 		// TODO: Check list of currently existing entities, get next available
@@ -17,8 +17,7 @@ public abstract class Actor extends Entity {
 		this.entityID = 1;
 	}
 
-	public int xPosition = -1;
-	public int yPosition = -1;
+	public Coordinates coordinates;
 	public int health = -1;
 	public int entityID = -1;
 
@@ -30,37 +29,29 @@ public abstract class Actor extends Entity {
 		this.health = health;
 	}
 
-	public int getxPosition() {
-		return xPosition;
+	public Coordinates getCoordinates() {
+		return coordinates;
 	}
 
-	public void setxPosition(int xPosition) {
-		this.xPosition = xPosition;
-	}
-
-	public int getyPosition() {
-		return yPosition;
-	}
-
-	public void setyPosition(int yPosition) {
-		this.yPosition = yPosition;
+	public void setCoordinates(Coordinates coordinates) {
+		this.coordinates = coordinates;
 	}
 
 	public Actor move(HashMap<String, Integer> movementMap) {
 		if (movementMap.containsKey(CharacterConstants.MOVEMENT_RIGHT)) {
-			this.setxPosition(this.getxPosition()
+			coordinates.setX(coordinates.getX()
 					+ movementMap.get(CharacterConstants.MOVEMENT_RIGHT));
 		}
 		if (movementMap.containsKey(CharacterConstants.MOVEMENT_LEFT)) {
-			this.setxPosition(this.getxPosition()
+			coordinates.setX(coordinates.getX()
 					- movementMap.get(CharacterConstants.MOVEMENT_LEFT));
 		}
 		if (movementMap.containsKey(CharacterConstants.MOVEMENT_UP)) {
-			this.setyPosition(this.getyPosition()
+			coordinates.setY(coordinates.getY()
 					+ movementMap.get(CharacterConstants.MOVEMENT_UP));
 		}
 		if (movementMap.containsKey(CharacterConstants.MOVEMENT_DOWN)) {
-			this.setyPosition(this.getyPosition()
+			coordinates.setY(coordinates.getY()
 					- movementMap.get(CharacterConstants.MOVEMENT_DOWN));
 		}
 

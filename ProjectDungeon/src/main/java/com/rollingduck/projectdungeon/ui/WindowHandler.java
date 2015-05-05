@@ -1,34 +1,34 @@
 package com.rollingduck.projectdungeon.ui;
 
-import org.lwjgl.LWJGLException;
-import org.lwjgl.opengl.Display;
-import org.lwjgl.opengl.DisplayMode;
+import org.newdawn.slick.AppGameContainer;
+import org.newdawn.slick.SlickException;
 
-import com.rollingduck.projectdungeon.constants.WorldConstants;
+import com.rollingduck.projectdungeon.GameRunner;
 
 public class WindowHandler {
-//Need -Djava.library.path=target/natives as a vm argument
-	
-	public void createWindow(){
-		//TODO move window sizes to constants
+	// Need -Djava.library.path=target/natives as a vm argument
+
+	private static final int WINDOW_HEIGHT = 600;
+	private static final int WINDOW_WIDTH = 800;
+
+	private GameRunner runner;
+
+	public WindowHandler(GameRunner runner) {
+		this.runner = runner;
+	}
+
+	public void createWindow() {
 		try {
-			Display.setDisplayMode(new DisplayMode(640, 480));
-			Display.setTitle("Project Dungeon");
-			Display.setInitialBackground(0.6f, 0.1f, 0.2f);
-			Display.create();
-			
-			while (!Display.isCloseRequested()){
-				Display.update();
-				Display.sync(WorldConstants.targetFPS);
-			}
-			Display.destroy();
-		} catch (LWJGLException e) {
+			AppGameContainer game = new AppGameContainer(runner);
+			game.setMaximumLogicUpdateInterval(60);
+			game.setDisplayMode(800, 800, false);
+			game.setTargetFrameRate(60);
+			game.setAlwaysRender(true);
+			game.setVSync(true);
+			game.setShowFPS(false);
+			game.start();
+		} catch (SlickException e) {
 			e.printStackTrace();
 		}
-	}
-	
-	public void displayBackgroud(){
-		
-		
 	}
 }

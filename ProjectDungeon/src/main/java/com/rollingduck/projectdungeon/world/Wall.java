@@ -1,6 +1,10 @@
 package com.rollingduck.projectdungeon.world;
 
-public class Wall implements Tile {
+public class Wall extends Tile {
+
+	Wall(Coordinates coordinate) {
+		super(coordinate);
+	}
 
 	public Boolean isWalkThrough() {
 		return false;
@@ -9,7 +13,5 @@ public class Wall implements Tile {
 	public String toMapString() {
 		return "x";
 	}
-	
-	
 
 }

@@ -4,25 +4,28 @@ import com.rollingduck.projectdungeon.constants.WorldConstants;
 
 public class CurrentLevelHolder {
 
-	private Coordinate[][] world = new Coordinate[WorldConstants.worldx][WorldConstants.worldy];
-	
-	public void printWorld(){
-		for (int i=0; i< WorldConstants.worldx; i++ ){
+	int tileSize = 200;
+
+	private Tile[][] world = new Tile[WorldConstants.worldXSize][WorldConstants.worldYSize];
+
+	public void printWorld() {
+		for (int i = 0; i < WorldConstants.worldXSize; i++) {
 			StringBuilder sb = new StringBuilder();
-			for (int j=0; j< WorldConstants.worldy; j++ ){
-				sb.append(world[i][j].getTile().toMapString());
+			for (int j = 0; j < WorldConstants.worldYSize; j++) {
+				sb.append(world[i][j].toMapString());
 			}
 			System.out.println(sb.toString());
 		}
 	}
 
-	public void setupWorld(){
-		for (int i=0; i< WorldConstants.worldx; i++ ){
-			for (int j=0; j< WorldConstants.worldy; j++ ){
-				if (i==0 || j==0 || i==WorldConstants.worldx-1 || j==WorldConstants.worldy-1){
-					world[i][j] = new Coordinate(i, j, new Wall());
+	public void setupWorld() {
+		for (int i = 0; i < WorldConstants.worldXSize; i++) {
+			for (int j = 0; j < WorldConstants.worldYSize; j++) {
+				if (i == 0 || j == 0 || i == WorldConstants.worldXSize - 1
+						|| j == WorldConstants.worldYSize - 1) {
+					world[i][j] = new Wall(new Coordinates(i, j));
 				} else {
-					world[i][j] = new Coordinate(i, j, new GrassFloor());
+					world[i][j] = new Floor(new Coordinates(i, j));
 				}
 			}
 		}
