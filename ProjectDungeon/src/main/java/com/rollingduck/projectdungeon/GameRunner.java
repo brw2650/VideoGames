@@ -2,6 +2,7 @@ package com.rollingduck.projectdungeon;
 
 import java.util.logging.Logger;
 
+import com.rollingduck.projectdungeon.ui.WindowHandler;
 import com.rollingduck.projectdungeon.world.CurrentLevelHolder;
 
 public class GameRunner {
@@ -19,5 +20,8 @@ public class GameRunner {
     	CurrentLevelHolder holder = new CurrentLevelHolder();
     	holder.setupWorld();
     	holder.printWorld();
+    	
+    	WindowHandler ui = new WindowHandler();
+    	ui.createWindow();
     }
 }

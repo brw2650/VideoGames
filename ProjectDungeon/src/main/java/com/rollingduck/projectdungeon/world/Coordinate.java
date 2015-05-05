@@ -1,5 +1,8 @@
 package com.rollingduck.projectdungeon.world;
 
+import java.util.List;
+import java.util.Set;
+
 /**
  * Holds coordinates of entities on world map and a reference to the object at that coordinate
  * 
@@ -7,19 +10,21 @@ package com.rollingduck.projectdungeon.world;
  * @param <T>
  *
  */
-public class Coordinate<T> {
+public class Coordinate {
 
 	private int x;
 	
 	private int y;
 	
-	//TODO coordinates should have a list of objects at that position + the tile?
-	private T object;
+	private Tile tile;
 	
-	public Coordinate(int x, int y, T object){
+	// TODO should be entity interface
+	private Set<Object> objectRefs;
+	
+	public Coordinate(int x, int y, Tile tile){
 		this.x = x;
 		this.y = y;
-		this.object = object;
+		this.tile = tile;
 	}
 
 	public int getX() {
@@ -29,10 +34,27 @@ public class Coordinate<T> {
 	public int getY() {
 		return y;
 	}
+	
+	public Tile getTile(){
+		return tile;
+	}
 
-	public T getObject() {
-		return object;
+	public Set<Object> getObjectRefs() {
+		return objectRefs;
+	}
+
+	public void setTile(Tile tile) {
+		this.tile = tile;
+	}
+
+	public void addObject(Object object) {
+		objectRefs.add(object);
 	}
 	
+	public void removeObject(Object object){
+		if (objectRefs.contains(object)){
+			objectRefs.remove(object);
+		}
+	}
 	
 }
