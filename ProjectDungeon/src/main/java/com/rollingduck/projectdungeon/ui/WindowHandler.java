@@ -5,6 +5,7 @@ import org.newdawn.slick.SlickException;
 
 import com.rollingduck.projectdungeon.GameRunner;
 import com.rollingduck.projectdungeon.constants.WorldConstants;
+import com.rollingduck.projectdungeon.world.Background;
 import com.rollingduck.projectdungeon.world.CurrentLevelHolder;
 import com.rollingduck.projectdungeon.world.Tile;
 
@@ -35,29 +36,38 @@ public class WindowHandler {
 		}
 	}
 
+	//Called at game start 
 	public void initWorld(CurrentLevelHolder holder) throws SlickException {
 		Tile[][] world = holder.getWorld();
-		uiWorld = new EntityImageHolder[WorldConstants.worldXSize][WorldConstants.worldXSize];
+		uiWorld = new EntityImageHolder[WorldConstants.worldXSize][WorldConstants.worldYSize];
 
 		for (int i = 0; i < WorldConstants.worldXSize; i++) {
 			for (int j = 0; j < WorldConstants.worldYSize; j++) {
 				if (j % 2 == 0) {
 					uiWorld[i][j] = new EntityImageHolder<Tile>(world[i][j],
-							"tiles/wall-1.png");
+							"src/main/resources/Art Assets/Tiles/Environment/Hex red.png");
 				} else {
 					uiWorld[i][j] = new EntityImageHolder<Tile>(world[i][j],
-							"tiles/wall-2.png");
+							"src/main/resources/Art Assets/Tiles/Environment/Hex yellow.png");
 				}
 			}
 		}
 
 	}
 
-	public void renderWorld() {
-
+	//Called each game loop 
+	public void renderWorld() throws SlickException {
+		
+		//The devils code
+		//Fix later
+		Background b = new Background();
+		EntityImageHolder<Background> eih = new EntityImageHolder<Background>(b,
+				"src/main/resources/Art Assets/Backgrounds/Tile 1 - Mudbaron.png");
+		eih.drawAsBackground();
+		
 		for (int i = 0; i < WorldConstants.worldXSize; i++) {
 			for (int j = 0; j < WorldConstants.worldYSize; j++) {
-				if (i == 0 % 2) {
+				if (j % 2 == 0) {
 					uiWorld[i][j].draw(false);
 				} else {
 					uiWorld[i][j].draw(true);
@@ -65,5 +75,7 @@ public class WindowHandler {
 			}
 		}
 	}
+	
+	
 
 }

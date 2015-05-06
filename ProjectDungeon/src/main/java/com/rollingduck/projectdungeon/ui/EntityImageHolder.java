@@ -23,5 +23,9 @@ public class EntityImageHolder<T extends Entity> extends Image {
 		}
 		super.draw(x, y);
 	}
+	
+	public void drawAsBackground(){
+		super.draw(0, 0, 600, 800);
+	}
 
 }
