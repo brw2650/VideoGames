@@ -7,6 +7,8 @@ public class EntityManager {
 
 	private HashMap<Integer, Entity> entityMap = new HashMap<Integer, Entity>();
 
+	private int currentId = 0;
+
 	protected EntityManager() {
 
 	}
@@ -31,4 +33,9 @@ public class EntityManager {
 		return (instance.entityMap.get(entityId));
 	}
 
+	public static int getNextId() {
+		int current = instance.currentId;
+		instance.currentId++;
+		return current;
+	}
 }

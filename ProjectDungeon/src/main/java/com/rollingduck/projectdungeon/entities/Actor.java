@@ -11,10 +11,7 @@ public abstract class Actor implements Entity {
 		super();
 		this.coordinates = coordinates;
 		this.health = health;
-
-		// TODO: Check list of currently existing entities, get next available
-		// ID.
-		this.entityID = 1;
+		this.entityID = EntityManager.getNextId();
 	}
 
 	public Coordinates coordinates;

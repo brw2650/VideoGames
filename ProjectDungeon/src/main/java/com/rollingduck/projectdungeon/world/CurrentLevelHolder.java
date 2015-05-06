@@ -30,4 +30,8 @@ public class CurrentLevelHolder {
 			}
 		}
 	}
+
+	public Tile[][] getWorld() {
+		return world;
+	}
 }

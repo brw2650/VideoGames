@@ -2,11 +2,16 @@ package com.rollingduck.projectdungeon.world;
 
 import java.util.Set;
 
-public abstract class Tile {
+import com.rollingduck.projectdungeon.entities.Entity;
+import com.rollingduck.projectdungeon.entities.EntityManager;
+
+public abstract class Tile implements Entity {
 
 	private Coordinates coordinates;
 
 	private Set<Integer> entityRefs;
+
+	private int entityId;
 
 	abstract Boolean isWalkThrough();
 
@@ -14,6 +19,7 @@ public abstract class Tile {
 
 	Tile(Coordinates coordinates) {
 		this.coordinates = coordinates;
+		this.entityId = EntityManager.getNextId();
 	}
 
 	public Set<Integer> getEntityRefs() {
@@ -32,6 +38,15 @@ public abstract class Tile {
 
 	public Coordinates getCoordinates() {
 		return coordinates;
+	}
+
+	public int getEntityId() {
+		return entityId;
+	}
+
+	public String toString() {
+		return "Tile at: " + coordinates.getX() + "," + coordinates.getY();
+
 	}
 
 }

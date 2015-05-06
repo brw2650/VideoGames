@@ -5,16 +5,18 @@ import java.util.logging.Logger;
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
 import com.rollingduck.projectdungeon.controller.InputController;
+import com.rollingduck.projectdungeon.entities.EntityManager;
 import com.rollingduck.projectdungeon.ui.WindowHandler;
 import com.rollingduck.projectdungeon.world.CurrentLevelHolder;
 
 public class GameRunner extends BasicGame {
 
-	Image background;
+	CurrentLevelHolder holder;
+
+	WindowHandler ui;
 
 	public GameRunner(String title) {
 		super(title);
@@ -29,24 +31,25 @@ public class GameRunner extends BasicGame {
 	}
 
 	public void run() {
+		log.info("Starting entity store");
+		EntityManager.getInstance();
 		log.info("Game running.");
-		CurrentLevelHolder holder = new CurrentLevelHolder();
+		holder = new CurrentLevelHolder();
 		holder.setupWorld();
 		holder.printWorld();
 
-		WindowHandler ui = new WindowHandler(this);
+		ui = new WindowHandler(this);
 		ui.createWindow();
 	}
 
 	public void render(GameContainer container, Graphics graphics)
 			throws SlickException {
-		background.draw(0, 0);
-		background.draw(200, 0);
+		ui.renderWorld();
 	}
 
 	@Override
 	public void init(GameContainer container) throws SlickException {
-		background = new Image("tiles/wall.png");
+		ui.initWorld(holder);
 	}
 
 	@Override

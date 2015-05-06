@@ -1,6 +1,11 @@
 package com.rollingduck.projectdungeon.entities;
 
+import com.rollingduck.projectdungeon.world.Coordinates;
+
 public interface Entity {
-	public abstract int getEntityId();
+	int getEntityId();
+
+	// TODO move into UIEntity?
+	Coordinates getCoordinates();
 
 }
