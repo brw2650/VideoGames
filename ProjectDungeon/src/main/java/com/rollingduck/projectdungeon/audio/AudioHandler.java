@@ -15,7 +15,7 @@ public class AudioHandler {
 			Audio allStar = AudioLoader
 					.getAudio("OGG", ResourceLoader
 							.getResourceAsStream("Audio/01 All Star.ogg"));
-			allStar.playAsMusic(2.0f, 1.0f, true);
+			allStar.playAsMusic(1.0f, 1.0f, true);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

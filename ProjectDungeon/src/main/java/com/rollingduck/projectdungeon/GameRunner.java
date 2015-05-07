@@ -39,7 +39,7 @@ public class GameRunner extends BasicGame {
 		log.info("Game running.");
 		holder = new CurrentLevelHolder();
 		holder.setupWorld();
-		holder.printWorld();
+		// holder.printWorld();
 
 		ui = new WindowHandler(this);
 		audio = new AudioHandler();
@@ -54,7 +54,7 @@ public class GameRunner extends BasicGame {
 	@Override
 	public void init(GameContainer container) throws SlickException {
 		ui.initWorld(holder);
-		audio.startBackgroundMusic();
+		// audio.startBackgroundMusic();
 	}
 
 	@Override
