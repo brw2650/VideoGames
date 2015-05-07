@@ -1,17 +1,16 @@
 package com.rollingduck.projectdungeon.controller;
 
-import java.util.logging.Logger;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Input;
 
-import com.rollingduck.projectdungeon.GameRunner;
 import com.rollingduck.projectdungeon.audio.AudioHandler;
 
 public class InputController {
 
-	private static final Logger log = Logger.getLogger(GameRunner.class
-			.getName());
+	private static final Logger log = LogManager
+			.getLogger(InputController.class);
 
 	// TODO
 	// FIXME

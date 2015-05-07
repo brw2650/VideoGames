@@ -1,7 +1,7 @@
 package com.rollingduck.projectdungeon;
 
-import java.util.logging.Logger;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.newdawn.slick.BasicGame;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -25,8 +25,7 @@ public class GameRunner extends BasicGame {
 		super(title);
 	}
 
-	private static final Logger log = Logger.getLogger(GameRunner.class
-			.getName());
+	private static Logger log = LogManager.getLogger(InputController.class);
 
 	public static void main(String[] args) {
 		GameRunner runner = new GameRunner("ProjectDungeon");

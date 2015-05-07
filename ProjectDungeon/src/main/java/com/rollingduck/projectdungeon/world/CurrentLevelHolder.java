@@ -3,10 +3,12 @@ package com.rollingduck.projectdungeon.world;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.logging.Logger;
 
-import com.rollingduck.projectdungeon.GameRunner;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.rollingduck.projectdungeon.constants.WorldConstants;
+import com.rollingduck.projectdungeon.controller.InputController;
 
 public class CurrentLevelHolder {
 
@@ -14,8 +16,8 @@ public class CurrentLevelHolder {
 
 	private Tile[][] world = new Tile[WorldConstants.worldXSize][WorldConstants.worldYSize];
 
-	private static final Logger log = Logger.getLogger(GameRunner.class
-			.getName());
+	private static final Logger log = LogManager
+			.getLogger(InputController.class);
 
 	public void printWorld() {
 		for (int i = 0; i < WorldConstants.worldXSize; i++) {
@@ -33,9 +35,9 @@ public class CurrentLevelHolder {
 					"/WorldCSV/modelWorld.csv").toURI());
 			world = WorldImporter.importWorldCsv(csvFile);
 		} catch (IOException e) {
-			log.info("Failed to import CSV.");
+			log.error("Failed to import CSV.");
 		} catch (URISyntaxException e) {
-			log.info("Couldn't parse file location.");
+			log.error("Couldn't parse file location.");
 		}
 	}
 
