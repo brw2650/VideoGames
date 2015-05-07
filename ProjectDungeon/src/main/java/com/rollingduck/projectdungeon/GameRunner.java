@@ -7,6 +7,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 
+import com.rollingduck.projectdungeon.audio.AudioHandler;
 import com.rollingduck.projectdungeon.controller.InputController;
 import com.rollingduck.projectdungeon.entities.EntityManager;
 import com.rollingduck.projectdungeon.ui.WindowHandler;
@@ -17,6 +18,8 @@ public class GameRunner extends BasicGame {
 	CurrentLevelHolder holder;
 
 	WindowHandler ui;
+
+	AudioHandler audio;
 
 	public GameRunner(String title) {
 		super(title);
@@ -39,6 +42,7 @@ public class GameRunner extends BasicGame {
 		holder.printWorld();
 
 		ui = new WindowHandler(this);
+		audio = new AudioHandler();
 		ui.createWindow();
 	}
 
@@ -50,6 +54,7 @@ public class GameRunner extends BasicGame {
 	@Override
 	public void init(GameContainer container) throws SlickException {
 		ui.initWorld(holder);
+		audio.setup();
 	}
 
 	@Override
