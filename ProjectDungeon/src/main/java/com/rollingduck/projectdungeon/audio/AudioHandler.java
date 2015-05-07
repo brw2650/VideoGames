@@ -13,7 +13,7 @@ public class AudioHandler {
 			Audio allStar = AudioLoader
 					.getAudio("OGG", ResourceLoader
 							.getResourceAsStream("Audio/01 All Star.ogg"));
-			allStar.playAsMusic(2.0f, 1.0f, true);
+			allStar.playAsMusic(1.0f, 1.0f, true);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -33,7 +33,7 @@ public class AudioHandler {
 						.getAudio(
 								"OGG",
 								ResourceLoader
-										.getResourceAsStream("Audio/Shrek - Better Out Than In, I Always Say.OGG"));
+										.getResourceAsStream("Audio/Better Out Than In, I Always Say.OGG"));
 			}
 			movementAudio.playAsSoundEffect(1.0f, 1.0f, false);
 		} catch (IOException e) {

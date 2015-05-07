@@ -25,7 +25,8 @@ public class WindowHandler {
 			AppGameContainer game = new AppGameContainer(runner);
 			game.setMaximumLogicUpdateInterval(60);
 			// TODO move to constants
-			game.setDisplayMode(600, 800, false);
+			game.setDisplayMode(WorldConstants.windowXSize,
+					WorldConstants.windowYSize, false);
 			game.setTargetFrameRate(60);
 			game.setAlwaysRender(true);
 			game.setVSync(true);
@@ -36,7 +37,7 @@ public class WindowHandler {
 		}
 	}
 
-	//Called at game start 
+	// Called at game start
 	public void initWorld(CurrentLevelHolder holder) throws SlickException {
 		Tile[][] world = holder.getWorld();
 		uiWorld = new EntityImageHolder[WorldConstants.worldXSize][WorldConstants.worldYSize];
@@ -55,16 +56,17 @@ public class WindowHandler {
 
 	}
 
-	//Called each game loop 
+	// Called each game loop
 	public void renderWorld() throws SlickException {
-		
-		//The devils code
-		//Fix later
+
+		// The devils code
+		// Fix later
 		Background b = new Background();
-		EntityImageHolder<Background> eih = new EntityImageHolder<Background>(b,
+		EntityImageHolder<Background> eih = new EntityImageHolder<Background>(
+				b,
 				"src/main/resources/Art Assets/Backgrounds/Tile 1 - Mudbaron.png");
 		eih.drawAsBackground();
-		
+
 		for (int i = 0; i < WorldConstants.worldXSize; i++) {
 			for (int j = 0; j < WorldConstants.worldYSize; j++) {
 				if (j % 2 == 0) {
@@ -75,7 +77,5 @@ public class WindowHandler {
 			}
 		}
 	}
-	
-	
 
 }
