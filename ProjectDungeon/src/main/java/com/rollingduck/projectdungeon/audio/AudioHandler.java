@@ -35,7 +35,7 @@ public class AudioHandler {
 						.getAudio(
 								"OGG",
 								ResourceLoader
-										.getResourceAsStream("Audio/Shrek - Better Out Than In, I Always Say.OGG"));
+										.getResourceAsStream("Audio/Better Out Than In, I Always Say.OGG"));
 			}
 			movementAudio.playAsSoundEffect(1.0f, 1.0f, false);
 		} catch (IOException e) {
