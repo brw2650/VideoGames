@@ -1,4 +1,4 @@
-package entityTests;
+package com.rolling.prodjectdungeon.entities;
 
 import static org.junit.Assert.assertTrue;
 
@@ -6,18 +6,18 @@ import java.util.HashMap;
 
 import org.junit.Test;
 
+import com.rollingduck.projectdungeon.BaseTest;
 import com.rollingduck.projectdungeon.constants.CharacterConstants;
 import com.rollingduck.projectdungeon.entities.EntityManager;
 import com.rollingduck.projectdungeon.entities.Player;
 import com.rollingduck.projectdungeon.world.Coordinates;
 
-public class EntityManagerTest {
+public class EntityManagerTest extends BaseTest {
 
 	@Test
 	public void testAddEntity() {
 
 		Player p = new Player(new Coordinates(0, 1), 0);
-		EntityManager m = EntityManager.getInstance();
 		EntityManager.addEntity(p);
 
 		Player testPlayer = (Player) EntityManager.getEntityById(p

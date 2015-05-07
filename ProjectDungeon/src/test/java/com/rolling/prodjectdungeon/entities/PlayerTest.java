@@ -1,4 +1,4 @@
-package entityTests;
+package com.rolling.prodjectdungeon.entities;
 
 import static org.junit.Assert.assertTrue;
 
