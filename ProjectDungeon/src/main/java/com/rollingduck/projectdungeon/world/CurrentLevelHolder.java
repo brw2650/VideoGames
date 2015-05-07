@@ -1,5 +1,11 @@
 package com.rollingduck.projectdungeon.world;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.util.logging.Logger;
+
+import com.rollingduck.projectdungeon.GameRunner;
 import com.rollingduck.projectdungeon.constants.WorldConstants;
 
 public class CurrentLevelHolder {
@@ -7,6 +13,9 @@ public class CurrentLevelHolder {
 	int tileSize = 200;
 
 	private Tile[][] world = new Tile[WorldConstants.worldXSize][WorldConstants.worldYSize];
+
+	private static final Logger log = Logger.getLogger(GameRunner.class
+			.getName());
 
 	public void printWorld() {
 		for (int i = 0; i < WorldConstants.worldXSize; i++) {
@@ -19,15 +28,14 @@ public class CurrentLevelHolder {
 	}
 
 	public void setupWorld() {
-		for (int i = 0; i < WorldConstants.worldXSize; i++) {
-			for (int j = 0; j < WorldConstants.worldYSize; j++) {
-				if (i == 0 || j == 0 || i == WorldConstants.worldXSize - 1
-						|| j == WorldConstants.worldYSize - 1) {
-					world[i][j] = new Wall(new Coordinates(i, j));
-				} else {
-					world[i][j] = new Floor(new Coordinates(i, j));
-				}
-			}
+		try {
+			File csvFile = new File(CurrentLevelHolder.class.getResource(
+					"/WorldCSV/modelWorld.csv").toURI());
+			world = WorldImporter.importWorldCsv(csvFile);
+		} catch (IOException e) {
+			log.info("Failed to import CSV.");
+		} catch (URISyntaxException e) {
+			log.info("Couldn't parse file location.");
 		}
 	}
 

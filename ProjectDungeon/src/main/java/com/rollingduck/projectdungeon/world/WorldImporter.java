@@ -10,12 +10,12 @@ import com.rollingduck.projectdungeon.constants.WorldConstants;
 public class WorldImporter {
 
 	// TODO error if csv size doesn't match world
-	public Tile[][] importWorldCsv(File csvFile) throws IOException {
+	public static Tile[][] importWorldCsv(File csvFile) throws IOException {
 		Tile[][] world = new Tile[WorldConstants.worldXSize][WorldConstants.worldYSize];
 		BufferedReader br = null;
 		String line = "";
 		String cvsSplitBy = ",";
-		int i = 0;
+		int y = 0;
 
 		br = new BufferedReader(new FileReader(csvFile));
 
@@ -23,26 +23,19 @@ public class WorldImporter {
 			// use comma as separator
 			String[] tile = line.split(cvsSplitBy);
 
-			for (int j = 0; j < tile.length; j++) {
-				int tileType = Integer.parseInt(tile[j]);
+			for (int x = 0; x < tile.length; x++) {
+				int tileType = Integer.parseInt(tile[x]);
+				// TODO add more tileTypes, maybe a better way of handling this.
 				if (tileType == 0) {
-					world[i][j] = new Floor(new Coordinates(i, j));
+					world[x][y] = new Floor(new Coordinates(x, y));
 				} else {
-					world[i][j] = new Wall(new Coordinates(i, j));
+					world[x][y] = new Wall(new Coordinates(x, y));
 				}
 			}
-			i++;
+			y++;
 		}
 
 		br.close();
-
-		for (i = 0; i < 4; i++) {
-			StringBuilder sb = new StringBuilder();
-			for (int j = 0; j < 4; j++) {
-				sb.append(world[i][j].toMapString());
-			}
-			System.out.println(sb.toString());
-		}
 		return world;
 	}
 }
