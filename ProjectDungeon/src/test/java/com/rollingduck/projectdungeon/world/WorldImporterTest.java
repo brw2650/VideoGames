@@ -1,18 +1,23 @@
 package com.rollingduck.projectdungeon.world;
 
+import static org.junit.Assert.assertEquals;
+
+import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 import org.junit.Test;
 
 import com.rollingduck.projectdungeon.BaseTest;
-import com.rollingduck.projectdungeon.world.WorldImporter;
 
 public class WorldImporterTest extends BaseTest {
 
 	@Test
-	public void testImportWorldCsv() throws IOException {
+	public void testImportWorldCsv() throws IOException, URISyntaxException {
 		WorldImporter importer = new WorldImporter();
-		importer.importWorldCsv();
+		File csvFile = new File(WorldImporterTest.class.getResource(
+				"/testWorld.csv").toURI());
+		Tile[][] world = importer.importWorldCsv(csvFile);
+		assertEquals(Floor.class, world[1][1].getClass());
 	}
-
 }
