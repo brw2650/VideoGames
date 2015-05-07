@@ -1,4 +1,4 @@
-package com.rolling.prodjectdungeon.entities;
+package com.rollingduck.prodjectdungeon.entities;
 
 import static org.junit.Assert.assertTrue;
 
