@@ -19,6 +19,6 @@ public class AudioHandler {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		allStar.playAsMusic(1.0f, 1.0f, true);
+		allStar.playAsMusic(2.0f, 1.0f, true);
 	}
 }
