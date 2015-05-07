@@ -6,8 +6,6 @@ import org.newdawn.slick.openal.Audio;
 import org.newdawn.slick.openal.AudioLoader;
 import org.newdawn.slick.util.ResourceLoader;
 
-import com.rollingduck.projectdungeon.util.NumberUtil;
-
 public class AudioHandler {
 
 	public void startBackgroundMusic() {
@@ -24,7 +22,7 @@ public class AudioHandler {
 
 	public void onMoveSound() {
 		Audio movementAudio;
-		int number = NumberUtil.randInt(1, 2);
+		int number =  (int) Math.round(Math.random()*2);
 		try {
 			if (number == 1) {
 				movementAudio = AudioLoader
