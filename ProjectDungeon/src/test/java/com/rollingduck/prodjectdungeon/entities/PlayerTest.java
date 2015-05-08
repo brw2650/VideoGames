@@ -6,11 +6,12 @@ import java.util.HashMap;
 
 import org.junit.Test;
 
+import com.rollingduck.projectdungeon.BaseTest;
 import com.rollingduck.projectdungeon.constants.CharacterConstants;
 import com.rollingduck.projectdungeon.entities.Player;
 import com.rollingduck.projectdungeon.world.Coordinates;
 
-public class PlayerTest {
+public class PlayerTest extends BaseTest {
 
 	@Test
 	public void testPlayer() {
