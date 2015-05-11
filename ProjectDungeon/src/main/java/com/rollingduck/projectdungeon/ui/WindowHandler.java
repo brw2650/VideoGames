@@ -1,5 +1,6 @@
 package com.rollingduck.projectdungeon.ui;
 
+import org.lwjgl.opengl.Display;
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.SlickException;
 
@@ -13,6 +14,7 @@ public class WindowHandler {
 	// Need -Djava.library.path=target/natives as a vm argument
 
 	private GameRunner runner;
+	private AppGameContainer game;
 
 	EntityImageHolder<Tile>[][] uiWorld;
 
@@ -22,7 +24,7 @@ public class WindowHandler {
 
 	public void createWindow() {
 		try {
-			AppGameContainer game = new AppGameContainer(runner);
+			game = new AppGameContainer(runner);
 			game.setMaximumLogicUpdateInterval(60);
 			// TODO move to constants
 			game.setDisplayMode(WorldConstants.windowXSize,
@@ -31,6 +33,7 @@ public class WindowHandler {
 			game.setAlwaysRender(true);
 			game.setVSync(true);
 			game.setShowFPS(true);
+			Display.setResizable(true);
 			game.start();
 		} catch (SlickException e) {
 			e.printStackTrace();
@@ -58,6 +61,28 @@ public class WindowHandler {
 
 	// Called each game loop
 	public void renderWorld() throws SlickException {
+
+		WorldConstants.tileWidth = (game.getWidth() / WorldConstants.windowXSize)
+				* WorldConstants.tileWidth;
+		WorldConstants.windowXSize = game.getWidth();
+
+		WorldConstants.tileHeight = (game.getHeight() / WorldConstants.windowYSize)
+				* WorldConstants.tileHeight;
+		WorldConstants.windowYSize = game.getHeight();
+
+		if (Display.getWidth() != game.getWidth()
+				|| Display.getHeight() != game.getHeight()) {
+			try {
+				game.setDisplayMode(Display.getWidth(), Display.getHeight(),
+						false);
+				game.reinit();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		System.out.println(WorldConstants.tileHeight);
+		System.out.println(WorldConstants.tileWidth);
 
 		// The devils code
 		// Fix later

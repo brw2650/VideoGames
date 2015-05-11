@@ -17,7 +17,7 @@ public class EntityImageHolder<T extends Entity> extends Image {
 
 	public void draw(boolean offset) {
 		float x = entity.getCoordinates().getX() * WorldConstants.tileWidth;
-		float y = entity.getCoordinates().getY() * WorldConstants.tileHieght;
+		float y = entity.getCoordinates().getY() * WorldConstants.tileHeight;
 		if (offset) {
 			x += WorldConstants.tileWidth / 2;
 		}
