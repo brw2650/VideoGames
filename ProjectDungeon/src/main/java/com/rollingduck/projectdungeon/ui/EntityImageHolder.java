@@ -6,27 +6,36 @@ import org.newdawn.slick.SlickException;
 import com.rollingduck.projectdungeon.constants.WorldConstants;
 import com.rollingduck.projectdungeon.entities.Entity;
 
-public class EntityImageHolder<T extends Entity> extends Image {
+public class EntityImageHolder<T extends Entity> {
+
+	private Image image;
 
 	private T entity;
 
 	public EntityImageHolder(T entity, String imagePath) throws SlickException {
-		super(imagePath);
+		image = new Image(imagePath);
 		this.entity = entity;
 	}
 
-	@Override
+	public void updateImage(String imagePath) throws SlickException {
+		image = new Image(imagePath);
+	}
+
 	public void draw() {
 		float x = entity.getCoordinates().getX() * WorldConstants.tileWidth;
 		float y = entity.getCoordinates().getY() * WorldConstants.tileHeight;
 		if (entity.getCoordinates().getY() % 2 != 0.0) {
 			x += WorldConstants.tileWidth / 2;
 		}
-		super.draw(x, y);
+		image.draw(x, y);
 	}
 
 	public void drawAsBackground() {
-		super.draw(0, 0, WorldConstants.windowXSize, WorldConstants.windowYSize);
+		image.draw(0, 0, WorldConstants.windowXSize, WorldConstants.windowYSize);
+	}
+
+	public T getEntity() {
+		return entity;
 	}
 
 }

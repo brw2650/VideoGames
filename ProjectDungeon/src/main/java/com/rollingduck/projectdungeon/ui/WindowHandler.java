@@ -60,7 +60,7 @@ public class WindowHandler {
 		}
 		// TODO Move to entity drawing class?
 		player = new EntityImageHolder<Player>(holder.getPlayer(),
-				"src/main/resources/Art Assets/Tiles/NPCs/Duck BL1.png");
+				"src/main/resources/Art Assets/Tiles/NPCs/Duck L1.png");
 
 	}
 
@@ -104,6 +104,7 @@ public class WindowHandler {
 			}
 		}
 
+		ImageGetter.getImageForDirection(player);
 		player.draw();
 	}
 

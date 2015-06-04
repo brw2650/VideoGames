@@ -13,9 +13,7 @@ public class InputController {
 	private static final Logger log = LogManager
 			.getLogger(InputController.class);
 
-	// TODO
-	// FIXME
-	// !!!
+	// TODO check movement is possible TurnRunner class?
 	public static void getInput(GameContainer container, AudioHandler audio,
 			CurrentLevelHolder holder) {
 		Input input = container.getInput();
@@ -42,10 +40,10 @@ public class InputController {
 		}
 	}
 
-	// TODO move to turnEnd class
+	// TODO move to TurnRunner class
 	private static void turnEnd() {
 		try {
-			Thread.sleep(100);
+			Thread.sleep(200);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

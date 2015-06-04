@@ -7,6 +7,10 @@ import com.rollingduck.projectdungeon.world.Coordinates;
 
 public abstract class Actor implements Entity {
 
+	public enum FacingDirection {
+		BL, BR, L, R, TL, TR;
+	}
+
 	public Actor(Coordinates coordinates, int health) {
 		super();
 		this.coordinates = coordinates;
@@ -17,6 +21,7 @@ public abstract class Actor implements Entity {
 	private Coordinates coordinates;
 	private int health = -1;
 	protected int entityID = -1;
+	private FacingDirection direction = FacingDirection.L;
 
 	public int getHealth() {
 		return health;
@@ -59,18 +64,22 @@ public abstract class Actor implements Entity {
 
 	public void moveUp() {
 		coordinates.setY(coordinates.getY() - 1);
+		setDirection(FacingDirection.TL);
 	}
 
 	public void moveDown() {
 		coordinates.setY(coordinates.getY() + 1);
+		setDirection(FacingDirection.BR);
 	}
 
 	public void moveLeft() {
 		coordinates.setX(coordinates.getX() - 1);
+		setDirection(FacingDirection.L);
 	}
 
 	public void moveRight() {
 		coordinates.setX(coordinates.getX() + 1);
+		setDirection(FacingDirection.R);
 	}
 
 	public int live() {
@@ -84,6 +93,14 @@ public abstract class Actor implements Entity {
 
 		// TODO: Return ID of all removed entities as a result of kill
 		return 0;
+	}
+
+	public FacingDirection getDirection() {
+		return direction;
+	}
+
+	public void setDirection(FacingDirection direction) {
+		this.direction = direction;
 	}
 
 }
