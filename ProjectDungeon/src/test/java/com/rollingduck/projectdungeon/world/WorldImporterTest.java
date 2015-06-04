@@ -14,10 +14,9 @@ public class WorldImporterTest extends BaseTest {
 
 	@Test
 	public void testImportWorldCsv() throws IOException, URISyntaxException {
-		WorldImporter importer = new WorldImporter();
 		File csvFile = new File(WorldImporterTest.class.getResource(
 				"/testWorld.csv").toURI());
-		Tile[][] world = importer.importWorldCsv(csvFile);
+		Tile[][] world = WorldImporter.importWorldCsv(csvFile);
 		assertEquals(Floor.class, world[1][1].getClass());
 	}
 }
