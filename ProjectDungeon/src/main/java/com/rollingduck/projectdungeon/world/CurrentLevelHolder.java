@@ -9,12 +9,15 @@ import org.apache.logging.log4j.Logger;
 
 import com.rollingduck.projectdungeon.constants.WorldConstants;
 import com.rollingduck.projectdungeon.controller.InputController;
+import com.rollingduck.projectdungeon.entities.Player;
 
 public class CurrentLevelHolder {
 
 	int tileSize = 200;
 
 	private Tile[][] world = new Tile[WorldConstants.worldXSize][WorldConstants.worldYSize];
+
+	private Player player;
 
 	private static final Logger log = LogManager
 			.getLogger(InputController.class);
@@ -34,6 +37,8 @@ public class CurrentLevelHolder {
 			File csvFile = new File(CurrentLevelHolder.class.getResource(
 					"/WorldCSV/modelWorld.csv").toURI());
 			world = WorldImporter.importWorldCsv(csvFile);
+
+			player = new Player(new Coordinates(1, 1), 10);
 		} catch (IOException e) {
 			log.error("Failed to import CSV.");
 		} catch (URISyntaxException e) {
@@ -43,5 +48,9 @@ public class CurrentLevelHolder {
 
 	public Tile[][] getWorld() {
 		return world;
+	}
+
+	public Player getPlayer() {
+		return player;
 	}
 }

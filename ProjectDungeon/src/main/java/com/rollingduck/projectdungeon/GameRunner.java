@@ -53,13 +53,13 @@ public class GameRunner extends BasicGame {
 	@Override
 	public void init(GameContainer container) throws SlickException {
 		ui.initWorld(holder);
-		// audio.startBackgroundMusic();
+		// audio.startBackgroundMusic(); no audio for testing
 	}
 
 	@Override
 	public void update(GameContainer container, int delta)
 			throws SlickException {
-		InputController.getInput(container, audio);
+		InputController.getInput(container, audio, holder);
 
 	}
 }

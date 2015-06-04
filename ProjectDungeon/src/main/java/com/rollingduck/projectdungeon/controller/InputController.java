@@ -6,6 +6,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Input;
 
 import com.rollingduck.projectdungeon.audio.AudioHandler;
+import com.rollingduck.projectdungeon.world.CurrentLevelHolder;
 
 public class InputController {
 
@@ -15,44 +16,39 @@ public class InputController {
 	// TODO
 	// FIXME
 	// !!!
-	public static void getInput(GameContainer container, AudioHandler audio) {
+	public static void getInput(GameContainer container, AudioHandler audio,
+			CurrentLevelHolder holder) {
 		Input input = container.getInput();
 		if (input.isKeyDown(Input.KEY_UP)) {
 			log.info("Up pressed");
+			holder.getPlayer().moveUp();
 			audio.onMoveSound();
-			try {
-				Thread.sleep(100);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			turnEnd();
 		} else if (input.isKeyDown(Input.KEY_DOWN)) {
 			log.info("Down pressed");
+			holder.getPlayer().moveDown();
 			audio.onMoveSound();
-			try {
-				Thread.sleep(100);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			turnEnd();
 		} else if (input.isKeyDown(Input.KEY_LEFT)) {
 			log.info("Left pressed");
+			holder.getPlayer().moveLeft();
 			audio.onMoveSound();
-			try {
-				Thread.sleep(100);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			turnEnd();
 		} else if (input.isKeyDown(Input.KEY_RIGHT)) {
 			log.info("Right pressed");
+			holder.getPlayer().moveRight();
 			audio.onMoveSound();
-			try {
-				Thread.sleep(100);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			turnEnd();
+		}
+	}
+
+	// TODO move to turnEnd class
+	private static void turnEnd() {
+		try {
+			Thread.sleep(100);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 }

@@ -6,6 +6,7 @@ import org.newdawn.slick.SlickException;
 
 import com.rollingduck.projectdungeon.GameRunner;
 import com.rollingduck.projectdungeon.constants.WorldConstants;
+import com.rollingduck.projectdungeon.entities.Player;
 import com.rollingduck.projectdungeon.world.Background;
 import com.rollingduck.projectdungeon.world.CurrentLevelHolder;
 import com.rollingduck.projectdungeon.world.Tile;
@@ -17,6 +18,7 @@ public class WindowHandler {
 	private AppGameContainer game;
 
 	EntityImageHolder<Tile>[][] uiWorld;
+	EntityImageHolder<Player> player;
 
 	public WindowHandler(GameRunner runner) {
 		this.runner = runner;
@@ -56,6 +58,9 @@ public class WindowHandler {
 				}
 			}
 		}
+		// TODO Move to entity drawing class?
+		player = new EntityImageHolder<Player>(holder.getPlayer(),
+				"src/main/resources/Art Assets/Tiles/NPCs/Duck BL1.png");
 
 	}
 
@@ -81,9 +86,6 @@ public class WindowHandler {
 			}
 		}
 
-		System.out.println(WorldConstants.tileHeight);
-		System.out.println(WorldConstants.tileWidth);
-
 		// The devils code
 		// Fix later
 		Background b = new Background();
@@ -92,15 +94,17 @@ public class WindowHandler {
 				"src/main/resources/Art Assets/Backgrounds/Tile 1 - Mudbaron.png");
 		eih.drawAsBackground();
 
-		for (int i = 0; i < WorldConstants.worldXSize; i++) {
-			for (int j = 0; j < WorldConstants.worldYSize; j++) {
-				if (j % 2 == 0) {
-					uiWorld[i][j].draw(false);
+		for (int x = 0; x < WorldConstants.worldXSize; x++) {
+			for (int y = 0; y < WorldConstants.worldYSize; y++) {
+				if (y % 2 == 0) {
+					uiWorld[x][y].draw();
 				} else {
-					uiWorld[i][j].draw(true);
+					uiWorld[x][y].draw();
 				}
 			}
 		}
+
+		player.draw();
 	}
 
 }

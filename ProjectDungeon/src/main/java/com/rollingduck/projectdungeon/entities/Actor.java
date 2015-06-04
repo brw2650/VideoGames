@@ -14,9 +14,9 @@ public abstract class Actor implements Entity {
 		this.entityID = EntityManager.getNextId();
 	}
 
-	public Coordinates coordinates;
-	public int health = -1;
-	public int entityID = -1;
+	private Coordinates coordinates;
+	private int health = -1;
+	protected int entityID = -1;
 
 	public int getHealth() {
 		return health;
@@ -55,6 +55,22 @@ public abstract class Actor implements Entity {
 		// Return the Actor so we can then investiage where its moved to, if
 		// need be
 		return this;
+	}
+
+	public void moveUp() {
+		coordinates.setY(coordinates.getY() - 1);
+	}
+
+	public void moveDown() {
+		coordinates.setY(coordinates.getY() + 1);
+	}
+
+	public void moveLeft() {
+		coordinates.setX(coordinates.getX() - 1);
+	}
+
+	public void moveRight() {
+		coordinates.setX(coordinates.getX() + 1);
 	}
 
 	public int live() {

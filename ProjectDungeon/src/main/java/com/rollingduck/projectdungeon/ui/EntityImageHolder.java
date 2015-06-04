@@ -15,10 +15,11 @@ public class EntityImageHolder<T extends Entity> extends Image {
 		this.entity = entity;
 	}
 
-	public void draw(boolean offset) {
+	@Override
+	public void draw() {
 		float x = entity.getCoordinates().getX() * WorldConstants.tileWidth;
 		float y = entity.getCoordinates().getY() * WorldConstants.tileHeight;
-		if (offset) {
+		if (entity.getCoordinates().getY() % 2 != 0.0) {
 			x += WorldConstants.tileWidth / 2;
 		}
 		super.draw(x, y);
