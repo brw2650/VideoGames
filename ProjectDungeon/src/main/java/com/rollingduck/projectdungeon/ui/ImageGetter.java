@@ -36,4 +36,8 @@ public class ImageGetter {
 		}
 	}
 
+	// TODO get tile image, should be give the tile type (enum?) and return an
+	// entityImageHolder containing an instance of tile with correct image +
+	// properties.
+
 }
