@@ -22,22 +22,22 @@ public class InputController {
 		if (input.isKeyDown(Input.KEY_UP)) {
 			log.info("Up pressed");
 			holder.getPlayer().moveUp();
-			audio.onMoveSound();
+			// audio.onMoveSound();
 			turnEnd();
 		} else if (input.isKeyDown(Input.KEY_DOWN)) {
 			log.info("Down pressed");
 			holder.getPlayer().moveDown();
-			audio.onMoveSound();
+			// audio.onMoveSound();
 			turnEnd();
 		} else if (input.isKeyDown(Input.KEY_LEFT)) {
 			log.info("Left pressed");
 			holder.getPlayer().moveLeft();
-			audio.onMoveSound();
+			// audio.onMoveSound();
 			turnEnd();
 		} else if (input.isKeyDown(Input.KEY_RIGHT)) {
 			log.info("Right pressed");
 			holder.getPlayer().moveRight();
-			audio.onMoveSound();
+			// audio.onMoveSound();
 			turnEnd();
 		}
 	}
