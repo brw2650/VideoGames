@@ -4,9 +4,8 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
 import com.rollingduck.projectdungeon.constants.WorldConstants;
-import com.rollingduck.projectdungeon.entities.Entity;
 
-public class EntityImageHolder<T extends Entity> {
+public class EntityImageHolder<T extends UIEntity> {
 
 	private Image image;
 

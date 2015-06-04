@@ -1,8 +1,8 @@
 package com.rollingduck.projectdungeon.world;
 
-import com.rollingduck.projectdungeon.entities.Entity;
+import com.rollingduck.projectdungeon.ui.UIEntity;
 
-public class Background implements Entity{
+public class Background implements UIEntity {
 
 	public int getEntityId() {
 		// TODO Auto-generated method stub

@@ -3,9 +3,10 @@ package com.rollingduck.projectdungeon.entities;
 import java.util.HashMap;
 
 import com.rollingduck.projectdungeon.constants.CharacterConstants;
+import com.rollingduck.projectdungeon.ui.UIEntity;
 import com.rollingduck.projectdungeon.world.Coordinates;
 
-public abstract class Actor implements Entity {
+public abstract class Actor implements UIEntity {
 
 	public enum FacingDirection {
 		BL, BR, L, R, TL, TR;

@@ -2,11 +2,11 @@ package com.rollingduck.projectdungeon.world;
 
 import java.util.Set;
 
-import com.rollingduck.projectdungeon.entities.Entity;
 import com.rollingduck.projectdungeon.entities.EntityManager;
+import com.rollingduck.projectdungeon.ui.UIEntity;
 
 // TODO there's probably a better way of doing different tile types, I think it should be an enum. Too much repeated code currently.
-public abstract class Tile implements Entity {
+public abstract class Tile implements UIEntity {
 
 	private Coordinates coordinates;
 
