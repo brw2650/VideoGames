@@ -14,22 +14,22 @@ public class ImageGetter {
 
 		switch (((Player) player.getEntity()).getDirection()) {
 		case L:
-			player.updateImage("src/main/resources/Art Assets/Tiles/Player character/Player L1.png");
+			player.updateImage("src/main/resources/Art Assets/Tiles/NPCs/Duck L1.png");
 			break;
 		case R:
-			player.updateImage("src/main/resources/Art Assets/Tiles/Player character/Player R1.png");
+			player.updateImage("src/main/resources/Art Assets/Tiles/NPCs/Duck R1.png");
 			break;
 		case BR:
-			player.updateImage("src/main/resources/Art Assets/Tiles/Player character/Player BR1.png");
+			player.updateImage("src/main/resources/Art Assets/Tiles/NPCs/Duck BR1.png");
 			break;
 		case BL:
-			player.updateImage("src/main/resources/Art Assets/Tiles/Player character/Player BL1.png");
+			player.updateImage("src/main/resources/Art Assets/Tiles/NPCs/Duck BL1.png");
 			break;
 		case TL:
-			player.updateImage("src/main/resources/Art Assets/Tiles/Player character/Player TL1.png");
+			player.updateImage("src/main/resources/Art Assets/Tiles/NPCs/Duck TL1.png");
 			break;
 		case TR:
-			player.updateImage("src/main/resources/Art Assets/Tiles/Player character/Player TR1.png");
+			player.updateImage("src/main/resources/Art Assets/Tiles/NPCs/Duck TR1.png");
 			break;
 		}
 	}
