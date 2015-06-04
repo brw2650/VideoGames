@@ -7,7 +7,9 @@ import com.rollingduck.projectdungeon.entities.Player;
 public class ImageGetter {
 
 	// TODO get image by class + direction + rand number (upto amount of images
-	// for that direction). Make generic
+	// for that direction). Make generic.
+	// How fast is changing image? would it be better to load + store all images
+	// in the Entity image holder?
 	public static void getImageForDirection(EntityImageHolder<Player> player)
 			throws SlickException {
 		String className = player.getClass().getSimpleName();
