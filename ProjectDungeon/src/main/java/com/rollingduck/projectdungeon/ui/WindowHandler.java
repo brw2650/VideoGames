@@ -6,6 +6,7 @@ import org.newdawn.slick.SlickException;
 
 import com.rollingduck.projectdungeon.GameRunner;
 import com.rollingduck.projectdungeon.constants.WorldConstants;
+import com.rollingduck.projectdungeon.entities.NPC;
 import com.rollingduck.projectdungeon.entities.Player;
 import com.rollingduck.projectdungeon.world.Background;
 import com.rollingduck.projectdungeon.world.CurrentLevelHolder;
@@ -19,6 +20,7 @@ public class WindowHandler {
 
 	EntityImageHolder<Tile>[][] uiWorld;
 	EntityImageHolder<Player> player;
+	EntityImageHolder<NPC> enemy;
 
 	public WindowHandler(GameRunner runner) {
 		this.runner = runner;
@@ -28,7 +30,6 @@ public class WindowHandler {
 		try {
 			game = new AppGameContainer(runner);
 			game.setMaximumLogicUpdateInterval(60);
-			// TODO move to constants
 			game.setDisplayMode(WorldConstants.windowXSize,
 					WorldConstants.windowYSize, false);
 			game.setTargetFrameRate(60);
@@ -61,6 +62,10 @@ public class WindowHandler {
 		// TODO Move to entity drawing class?
 		player = new EntityImageHolder<Player>(holder.getPlayer(),
 				"src/main/resources/Art Assets/Tiles/NPCs/Duck L1.png");
+
+		// TODO Move somewhere sensible
+		enemy = new EntityImageHolder<NPC>(holder.getEnemy(),
+				"src/main/resources/Art Assets/Tiles/NPCs/Snake L1.png");
 
 	}
 
@@ -106,6 +111,7 @@ public class WindowHandler {
 
 		ImageGetter.getImageForDirection(player);
 		player.draw();
+		enemy.draw();
 	}
 
 }

@@ -9,6 +9,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.rollingduck.projectdungeon.constants.WorldConstants;
 import com.rollingduck.projectdungeon.controller.InputController;
+import com.rollingduck.projectdungeon.entities.NPC;
 import com.rollingduck.projectdungeon.entities.Player;
 
 public class CurrentLevelHolder {
@@ -18,6 +19,9 @@ public class CurrentLevelHolder {
 	private Tile[][] world = new Tile[WorldConstants.worldXSize][WorldConstants.worldYSize];
 
 	private Player player;
+
+	// TODO list of enemies? Class to spawn them randomly?
+	private NPC enemy;
 
 	private static final Logger log = LogManager
 			.getLogger(InputController.class);
@@ -39,6 +43,7 @@ public class CurrentLevelHolder {
 			world = WorldImporter.importWorldCsv(csvFile);
 
 			player = new Player(new Coordinates(1, 1), 10);
+			enemy = new NPC(new Coordinates(2, 2), 20);
 		} catch (IOException e) {
 			log.error("Failed to import CSV.");
 		} catch (URISyntaxException e) {
@@ -53,4 +58,9 @@ public class CurrentLevelHolder {
 	public Player getPlayer() {
 		return player;
 	}
+
+	public NPC getEnemy() {
+		return enemy;
+	}
+
 }
