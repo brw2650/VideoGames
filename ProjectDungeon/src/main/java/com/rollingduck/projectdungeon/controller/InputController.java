@@ -17,22 +17,22 @@ public class InputController {
 	public static void getInput(GameContainer container, AudioHandler audio,
 			CurrentLevelHolder holder) {
 		Input input = container.getInput();
-		if (input.isKeyDown(Input.KEY_UP)) {
+		if (input.isKeyPressed(Input.KEY_UP)) {
 			log.info("Up pressed");
 			holder.getPlayer().moveUp();
 			// audio.onMoveSound();
 			turnEnd();
-		} else if (input.isKeyDown(Input.KEY_DOWN)) {
+		} else if (input.isKeyPressed(Input.KEY_DOWN)) {
 			log.info("Down pressed");
 			holder.getPlayer().moveDown();
 			// audio.onMoveSound();
 			turnEnd();
-		} else if (input.isKeyDown(Input.KEY_LEFT)) {
+		} else if (input.isKeyPressed(Input.KEY_LEFT)) {
 			log.info("Left pressed");
 			holder.getPlayer().moveLeft();
 			// audio.onMoveSound();
 			turnEnd();
-		} else if (input.isKeyDown(Input.KEY_RIGHT)) {
+		} else if (input.isKeyPressed(Input.KEY_RIGHT)) {
 			log.info("Right pressed");
 			holder.getPlayer().moveRight();
 			// audio.onMoveSound();
@@ -42,11 +42,6 @@ public class InputController {
 
 	// TODO move to TurnRunner class
 	private static void turnEnd() {
-		try {
-			Thread.sleep(200);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
 	}
 }
